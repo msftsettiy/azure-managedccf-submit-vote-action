@@ -1,5 +1,5 @@
 # action.yaml
-name: 'CCF proposal voting'
+name: 'Managed CCF proposal voting'
 author: 'Microsoft'
 description: 'Automated voting for applications in CCF'
 branding: 
