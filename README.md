@@ -22,13 +22,13 @@ on: [push]
 jobs:
   ccf-deploy:
     runs-on: ubuntu-latest
-    name: Deploy CCF application
+    name: Deploy a CCF application and accept it
     env:
       CCF_URL: '<your ccf endpoint>/'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: CCF vote
+      - name: CCF deploy
         uses: msftsettiy/azure-managedccf-deploy-app-action@v0.1.0-alpha
         id: deploy
         env:
@@ -39,7 +39,7 @@ jobs:
       - name: Get the proposal id
         run: echo "The proposal id is ${{ steps.deploy.outputs.proposal }}"
       - name: CCF approve action
-        uses: msftsettiy/azure-managedccf-submit-vote-action@v0.1.0-alpha
+        uses: msftsettiy/azure-managedccf-submit-vote-action@v0.2.0-alpha
         id: vote
         env:
           CERTD: ${{ secrets.MEMBERCERT }}
