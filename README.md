@@ -27,9 +27,9 @@ jobs:
       CCF_URL: '<your ccf endpoint>/'
     steps:
       - name: Checkout
-        uses: actions/checkout@v3}
+        uses: actions/checkout@v3
       - name: CCF vote
-        uses: caleteeter/ct-ccf-deploy@v0.1.3-alpha
+        uses: msftsettiy/azure-managedccf-deploy-app-action@v0.1.0-alpha
         id: deploy
         env:
           CERTD: ${{ secrets.MEMBERCERT }}
@@ -39,7 +39,7 @@ jobs:
       - name: Get the proposal id
         run: echo "The proposal id is ${{ steps.deploy.outputs.proposal }}"
       - name: CCF approve action
-        uses: caleteeter/ct-ccf-vote@v0.1.3-alpha
+        uses: msftsettiy/azure-managedccf-submit-vote-action@v0.1.0-alpha
         id: vote
         env:
           CERTD: ${{ secrets.MEMBERCERT }}
