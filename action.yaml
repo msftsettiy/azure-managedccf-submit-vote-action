@@ -1,0 +1,19 @@
+# action.yaml
+name: 'CCF proposal voting'
+author: 'Microsoft'
+description: 'Automated voting for applications in CCF'
+branding: 
+  icon: 'package'
+  color: 'blue'
+inputs:
+  proposal:
+    description: 'The proposal id to vote on'
+    required: true
+outputs:
+  status:
+    description: 'The proposal status after voting'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.proposal }}
